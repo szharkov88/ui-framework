@@ -1,0 +1,30 @@
+.header {
+    width: 100%;
+    background-color: bisque;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 200px;
+    height: 200px;
+}
+
+.clock {
+    font-weight: 700;
+    font-size: 24px;
+    border: 1px solid coral;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.lot {
+    margin-top: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    border: 1px solid coral;
+}
