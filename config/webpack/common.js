@@ -1,11 +1,10 @@
-const paths = require('../paths')
+const webpack = require('webpack');
 
-const webpack = require('webpack')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-
-const Dotenv = require('dotenv-webpack')
+const Dotenv = require('dotenv-webpack');
+const paths = require('../paths');
 
 const babelLoader = {
   loader: 'babel-loader',
@@ -14,10 +13,10 @@ const babelLoader = {
     plugins: [
       '@babel/plugin-proposal-class-properties',
       '@babel/plugin-syntax-dynamic-import',
-      '@babel/plugin-transform-runtime'
-    ]
-  }
-}
+      '@babel/plugin-transform-runtime',
+    ],
+  },
+};
 
 module.exports = {
   entry: `${paths.src}/index.js`,
@@ -34,32 +33,37 @@ module.exports = {
       const: true,
       destructuring: true,
       dynamicImport: false,
-      forOf: true
-    }
+      forOf: true,
+    },
   },
   resolve: {
     alias: {
-      '@': `${paths.src}/modules`
+      '@': `${paths.src}/modules`,
     },
-    extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json']
+    extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json'],
   },
   experiments: {
     topLevelAwait: true,
-    outputModule: true
+    outputModule: true,
   },
   module: {
     rules: [
       // JavaScript, React
       {
-        test: /\.m?jsx?$/i,
+        test: /\.js$/,
         exclude: /node_modules/,
-        use: babelLoader
+        use: [babelLoader, 'eslint-loader'],
+      },
+      {
+        test: /\.m?(jsx)?$/i,
+        exclude: /node_modules/,
+        use: babelLoader,
       },
       // TypeScript
       {
         test: /.tsx?$/i,
         exclude: /node_modules/,
-        use: [babelLoader, 'ts-loader']
+        use: [babelLoader, 'ts-loader'],
       },
       // CSS, SASS
       {
@@ -68,22 +72,22 @@ module.exports = {
           'style-loader',
           {
             loader: 'css-loader',
-            options: { importLoaders: 1 }
+            options: { importLoaders: 1 },
           },
-          'sass-loader'
-        ]
+          'sass-loader',
+        ],
       },
       // MD
       {
         test: /\.md$/i,
-        use: ['html-loader', 'markdown-loader']
+        use: ['html-loader', 'markdown-loader'],
       },
       // static files
       {
         test: /\.(jpe?g|png|gif|svg|eot|ttf|woff2?)$/i,
-        type: 'asset'
-      }
-    ]
+        type: 'asset',
+      },
+    ],
   },
   plugins: [
     new webpack.ProgressPlugin(),
@@ -91,9 +95,9 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: `${paths.public}/assets`
-        }
-      ]
+          from: `${paths.public}/assets`,
+        },
+      ],
     }),
 
     new HtmlWebpackPlugin({
@@ -108,16 +112,16 @@ module.exports = {
         keywords:
           'webpack, webpack5, boilerplate, template, max, config, bundler, bundle, javascript, react, reactjs, react.js, typescript, project, app',
         title: 'Webpack5 Max',
-        url: 'https://example.com'
-      }
+        url: 'https://example.com',
+      },
     }),
 
     new webpack.ProvidePlugin({
-      React: 'react'
+      React: 'react',
     }),
 
     new Dotenv({
-      path: './config/.env'
-    })
-  ]
-}
+      path: './config/.env',
+    }),
+  ],
+};

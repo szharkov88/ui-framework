@@ -1,14 +1,12 @@
-import './style.css'
+import './style.css';
 
-import {App} from "./components/app/App";
-import {render} from "./framework/render/render";
-import {state} from "./store";
+import { App } from './components/app/App';
+import { render } from './framework/render/render';
+// eslint-disable-next-line import/no-cycle
+import { state as appStore } from './store';
 
-export function renderView (state) {
-    render(
-        App({ state }),
-        document.getElementById('root')
-    )
+export function renderView(state) {
+  render(App({ state }), document.getElementById('root'));
 }
 
-renderView(state)
+renderView(appStore);

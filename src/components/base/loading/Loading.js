@@ -1,11 +1,9 @@
-export function Loading () {
-    return {
-        type: 'div',
-        props: {
-            className: 'loading',
-            children: [
-                'Loading...'
-            ]
-        }
-    }
+export function Loading() {
+  return {
+    type: 'div',
+    props: {
+      className: 'loading',
+      children: ['Loading...'],
+    },
+  };
 }

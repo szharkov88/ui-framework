@@ -1,15 +1,15 @@
-import {Logo} from "../logo/Logo";
+import { Logo } from '../logo/Logo';
 
-export function Header () {
-    return {
-        type: 'header',
-        props: {
-            className: 'header',
-            children: [
-                {
-                    type: Logo,
-                }
-            ]
+export function Header() {
+  return {
+    type: 'header',
+    props: {
+      className: 'header',
+      children: [
+        {
+          type: Logo,
         },
-    }
+      ],
+    },
+  };
 }
