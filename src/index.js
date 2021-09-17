@@ -1,10 +1,8 @@
-import { App } from './components/app/App';
-import { render } from './framework/render/render';
-// eslint-disable-next-line import/no-cycle
-import { state as appStore } from './store';
+import { renderView } from './framework/render';
+import { store } from './store';
 
-export const renderView = (state) => {
-  render(App({ state }), document.getElementById('root'));
-};
+store.subscribe(() => {
+  renderView(store.getState());
+});
 
-renderView(appStore);
+renderView(store.getState());

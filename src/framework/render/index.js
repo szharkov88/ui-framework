@@ -1,7 +1,8 @@
 import { evaluate } from './evaluate';
 import { sync } from './sync';
+import { App } from '../../components/app/App';
 
-export function render(virtualDom, realDomRoot) {
+const render = (virtualDom, realDomRoot) => {
   const evaluatedVirtualDom = evaluate(virtualDom);
 
   const virtualDomRoot = {
@@ -14,4 +15,8 @@ export function render(virtualDom, realDomRoot) {
   };
 
   sync(virtualDomRoot, realDomRoot);
-}
+};
+
+export const renderView = (state) => {
+  render(App({ state }), document.getElementById('root'));
+};

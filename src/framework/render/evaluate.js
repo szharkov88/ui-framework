@@ -1,4 +1,4 @@
-export function evaluate(virtualNode) {
+export const evaluate = (virtualNode) => {
   if (typeof virtualNode !== 'object') {
     return virtualNode;
   }
@@ -18,4 +18,4 @@ export function evaluate(virtualNode) {
         : [evaluate(props.children)],
     },
   };
-}
+};

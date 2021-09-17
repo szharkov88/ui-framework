@@ -1,46 +1,32 @@
-import { api, stream } from '../utils/apiClients';
-// eslint-disable-next-line import/no-cycle
-import { renderView } from '../index';
-
-// eslint-disable-next-line import/no-mutable-exports
-export let state = {
+const initialState = {
   time: new Date(),
-  lots: null,
+  lots: [],
 };
 
-api.get('/lots').then((lots) => {
-  state = {
-    ...state,
-    lots,
-  };
-  renderView(state);
+export class Store {
+  constructor(state) {
+    this.state = state;
+    this.listeners = [];
+  }
 
-  const onPrice = (data) => {
-    state = {
-      ...state,
-      lots: state.lots.map((lot) => {
-        if (lot.id === data.id) {
-          return {
-            ...lot,
-            price: data.price,
-          };
-        }
-        return lot;
-      }),
+  subscribe(callback) {
+    this.listeners.push(callback);
+  }
+
+  getState() {
+    return this.state;
+  }
+
+  changeState(diff) {
+    this.state = {
+      ...this.state,
+      ...(typeof diff === 'function' ? diff(this.state) : diff),
     };
-    return renderView(state);
-  };
 
-  lots.forEach((lot) => {
-    stream.subscribe(`price-${lot.id}`, onPrice);
-  });
-});
+    this.listeners.forEach((listener) => {
+      listener();
+    });
+  }
+}
 
-setInterval(() => {
-  state = {
-    ...state,
-    time: new Date(),
-  };
-
-  renderView(state);
-}, 1000);
+export const store = new Store(initialState);
