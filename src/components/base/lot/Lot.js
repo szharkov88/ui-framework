@@ -1,6 +1,6 @@
 import './Lot.css';
 
-export function Lot({ lot }) {
+export const Lot = ({ lot }) => {
   return {
     type: 'article',
     key: lot.id,
@@ -29,4 +29,4 @@ export function Lot({ lot }) {
       ],
     },
   };
-}
+};

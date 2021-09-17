@@ -1,7 +1,7 @@
 import './Header.css';
 import { Logo } from '../logo/Logo';
 
-export function Header() {
+export const Header = () => {
   return {
     type: 'header',
     props: {
@@ -13,4 +13,4 @@ export function Header() {
       ],
     },
   };
-}
+};

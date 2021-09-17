@@ -1,7 +1,7 @@
 import { Lot } from '../lot/Lot';
 import { Loading } from '../loading/Loading';
 
-export function Lots({ lots }) {
+export const Lots = ({ lots }) => {
   if (!lots) {
     return {
       type: Loading,
@@ -18,4 +18,4 @@ export function Lots({ lots }) {
       })),
     },
   };
-}
+};

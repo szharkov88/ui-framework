@@ -1,6 +1,6 @@
 import './Loading.css';
 
-export function Loading() {
+export const Loading = () => {
   return {
     type: 'div',
     props: {
@@ -8,4 +8,4 @@ export function Loading() {
       children: ['Loading...'],
     },
   };
-}
+};

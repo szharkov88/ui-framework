@@ -1,6 +1,6 @@
 import './Clock.css';
 
-export function Clock({ time }) {
+export const Clock = ({ time }) => {
   const isDay = time.getHours() >= 7 && time.getHours() <= 21;
 
   return {
@@ -24,4 +24,4 @@ export function Clock({ time }) {
       ],
     },
   };
-}
+};

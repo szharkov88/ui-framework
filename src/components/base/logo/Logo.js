@@ -1,7 +1,7 @@
 import './Logo.css';
 import logo from '../../../assets/logo.png';
 
-export function Logo() {
+export const Logo = () => {
   return {
     type: 'img',
     props: {
@@ -9,4 +9,4 @@ export function Logo() {
       src: logo,
     },
   };
-}
+};

@@ -4,7 +4,7 @@ import { Header } from '../base/header/Header';
 import { Clock } from '../base/clock/Clock';
 import { Lots } from '../base/lots/Lots';
 
-export function App({ state }) {
+export const App = ({ state }) => {
   return {
     type: 'div',
     props: {
@@ -25,4 +25,4 @@ export function App({ state }) {
       ],
     },
   };
-}
+};
