@@ -53,7 +53,10 @@
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.7.3",
-    "workbox-webpack-plugin": "^6.1.0"
+    "workbox-webpack-plugin": "^6.1.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-webpack-plugin": "^2.2.2"
   },
   "scripts": {
     "start": "webpack serve -c config/webpack/dev.js",

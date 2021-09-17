@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -90,6 +91,10 @@ module.exports = {
     ],
   },
   plugins: [
+    new StyleLintPlugin({
+      fix: true,
+      configFile: '.stylelintrc',
+    }),
     new webpack.ProgressPlugin(),
 
     new CopyWebpackPlugin({
