@@ -1,6 +1,6 @@
 const initialState = {
   time: new Date(),
-  lots: [],
+  lots: null,
 };
 
 export class Store {
