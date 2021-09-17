@@ -1,27 +1,17 @@
 import './Clock.css';
+import { VDom } from '../../../framework/virtual-dom/virtualDom';
 
 export const Clock = ({ time }) => {
   const isDay = time.getHours() >= 7 && time.getHours() <= 21;
 
-  return {
-    type: 'div',
-    props: {
-      className: 'clock',
-      children: [
-        {
-          type: 'span',
-          props: {
-            className: 'value',
-            children: [time.toLocaleString()],
-          },
-        },
-        {
-          type: 'span',
-          props: {
-            className: isDay ? 'icon day' : 'icon night',
-          },
-        },
-      ],
-    },
-  };
+  return VDom.createElement('div', { className: 'clock' }, [
+    VDom.createElement(
+      'span',
+      { className: 'clock__value' },
+      time.toLocaleString()
+    ),
+    VDom.createElement('span', {
+      className: isDay ? 'icon day' : 'icon night',
+    }),
+  ]);
 };

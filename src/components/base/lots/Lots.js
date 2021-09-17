@@ -1,21 +1,14 @@
 import { Lot } from '../lot/Lot';
 import { Loading } from '../loading/Loading';
+import { VDom } from '../../../framework/virtual-dom/virtualDom';
 
 export const Lots = ({ lots }) => {
   if (!lots) {
-    return {
-      type: Loading,
-      props: {},
-    };
+    return VDom.createElement(Loading);
   }
-  return {
-    type: 'div',
-    props: {
-      className: 'lots',
-      children: lots.map((lot) => ({
-        type: Lot,
-        props: { lot },
-      })),
-    },
-  };
+  return VDom.createElement(
+    'div',
+    { className: 'lots' },
+    lots.map((lot) => VDom.createElement(Lot, { lot }))
+  );
 };

@@ -1,32 +1,14 @@
 import './Lot.css';
+import { VDom } from '../../../framework/virtual-dom/virtualDom';
 
 export const Lot = ({ lot }) => {
-  return {
-    type: 'article',
-    key: lot.id,
-    props: {
-      className: 'lot',
-      children: [
-        {
-          type: 'div',
-          props: {
-            className: 'price',
-            children: lot.price,
-          },
-        },
-        {
-          type: 'h1',
-          props: {
-            children: lot.name,
-          },
-        },
-        {
-          type: 'p',
-          props: {
-            children: lot.description,
-          },
-        },
-      ],
-    },
-  };
+  return VDom.createElement('article', { key: lot.id, className: 'lot' }, [
+    VDom.createElement('div', { className: 'article__price' }, lot.price),
+    VDom.createElement('h1', { className: 'article__name' }, lot.name),
+    VDom.createElement(
+      'p',
+      { className: 'article__description' },
+      lot.description
+    ),
+  ]);
 };
