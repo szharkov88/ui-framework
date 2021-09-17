@@ -26,7 +26,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7f66fc1-2830-488b-b6b2-1862eb6fad75" name="Default Changelist" comment="" />
+    <list default="true" id="e7f66fc1-2830-488b-b6b2-1862eb6fad75" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +80,7 @@
       <workItem from="1631799807173" duration="7926000" />
       <workItem from="1631813207948" duration="2922000" />
       <workItem from="1631865323296" duration="4510000" />
-      <workItem from="1631870119018" duration="304000" />
+      <workItem from="1631870119018" duration="607000" />
     </task>
     <servers />
   </component>
