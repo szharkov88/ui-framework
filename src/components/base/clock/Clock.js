@@ -1,3 +1,5 @@
+import './Clock.css';
+
 export function Clock({ time }) {
   const isDay = time.getHours() >= 7 && time.getHours() <= 21;
 

@@ -1,3 +1,5 @@
+import './Lot.css';
+
 export function Lot({ lot }) {
   return {
     type: 'article',

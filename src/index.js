@@ -1,5 +1,3 @@
-import './style.css';
-
 import { App } from './components/app/App';
 import { render } from './framework/render/render';
 // eslint-disable-next-line import/no-cycle

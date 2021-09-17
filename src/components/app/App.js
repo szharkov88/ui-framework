@@ -1,3 +1,5 @@
+import './App.css';
+
 import { Header } from '../base/header/Header';
 import { Clock } from '../base/clock/Clock';
 import { Lots } from '../base/lots/Lots';

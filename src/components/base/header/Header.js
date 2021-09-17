@@ -1,3 +1,4 @@
+import './Header.css';
 import { Logo } from '../logo/Logo';
 
 export function Header() {
